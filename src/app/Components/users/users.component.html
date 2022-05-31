@@ -1,0 +1,18 @@
+<div class="container my-3">
+    <h1 class="mb-5 todo_heading text-center ">User Form</h1>
+    <app-registration (userAdd)="addUser($event)"></app-registration>
+
+    <h3 class="mt-5">Users List</h3>
+    <hr>
+
+    <div *ngIf="this.users.length === 0 ; else elseBlock">
+        <p>No Users to display</p>
+    </div>
+
+    <ng-template #elseBlock>
+        <div *ngFor="let user of users; index as i">
+            <app-userslist [user]="user" [index]="i" (userDelete)="deleteUser($event)"
+                (userCheckBox)="checkBoxToggle($event)"> </app-userslist>
+        </div>
+    </ng-template>
+</div>

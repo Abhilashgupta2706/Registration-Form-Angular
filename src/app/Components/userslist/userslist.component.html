@@ -1,0 +1,10 @@
+<h6 [ngClass]="{'strike': !user.active}">Name: <strong>{{user.fname}} {{user.lname}}</strong></h6>
+<p [ngClass]="{'strike': !user.active}">Password: <strong>{{user.pass}}</strong></p>
+<div class="form-check my-2">
+    <input class="form-check-input" type="checkbox" value="" id="scammerMark{{index}}" (click)="checkBoxClick(user)" [checked]="!user.active">
+    <label class="form-check-label" for="scammerMark{{index}}">
+        Mark as Scammer
+    </label>
+</div>
+<button class="btn btn-danger btn-sm" (click)="deleteUser(user)">Delete</button>
+<hr>
